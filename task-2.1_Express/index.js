@@ -4,7 +4,7 @@ const library = require('./library/store')
 const createBook = require('./helpers/createBook')
 
 const app = express()
-app.use(express.json)
+app.use(express.json())
 
 app.post('/api/user/login', (_req, res) => {
   res.status(201)

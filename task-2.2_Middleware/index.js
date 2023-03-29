@@ -4,7 +4,7 @@ const userRouter = require('./routes/userRouter')
 const booksRouter = require('./routes/booksRouter')
 
 const app = express()
-app.use(express.json)
+app.use(express.json())
 
 app.use('/api/user', userRouter);
 app.use('/api/books', booksRouter);
