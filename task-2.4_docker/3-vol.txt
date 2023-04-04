@@ -1,0 +1,78 @@
+1. Загрузите образ node версии 15.14
+
+galina@Galinas-MacBook-Pro myFolder % docker pull node:15.14
+15.14: Pulling from library/node
+bfde2ec33fbc: Already exists
+787f5e2f1047: Already exists
+7b6173a10eb8: Already exists
+dc05be471d51: Already exists
+55fab5cadd3c: Already exists
+bd821d20ef8c: Already exists
+6041b69671c6: Already exists
+989c5d2d2313: Already exists
+4b57d41e8391: Already exists
+Digest: sha256:608bba799613b1ebf754034ae008849ba51e88b23271412427b76d60ae0d0627
+Status: Downloaded newer image for node:15.14
+docker.io/library/node:15.14
+galina@Galinas-MacBook-Pro myFolder %
+
+
+2. Запустите контейнер с именем first_node из образа node версии 15.14 в фоновом режиме, подключив папку data из текущей директории в /var/first/data контейнера
+
+galina@Galinas-MacBook-Pro myFolder % docker run --name first_node -it -v $(pwd)/data:/var/first/data -d node:15.14
+202651928a7b9d0180343f340fbd0459e8d462c32d6d6e6c5067a742485315eb
+galina@Galinas-MacBook-Pro myFolder %
+
+
+3. Запустите контейнер с именем second_node из образа node версии 15.14 в фоновом режиме, подключив папку data из текущей директории в /var/second/data контейнера
+
+galina@Galinas-MacBook-Pro myFolder % docker run --name second_node -it -v $(pwd)/data:/var/second/data -d node:15.14
+eff6feff6ee7f2974e98749e4b1fd48bba228353af300ee628cd77519a09979c
+galina@Galinas-MacBook-Pro myFolder %
+
+
+4. Подключитесь к контейнеру first_node с помощью exec и создайте текстовый файл любого содержания в /var/first/data
+
+galina@Galinas-MacBook-Pro myFolder % docker exec first_node touch /var/first/data/hello.txt
+galina@Galinas-MacBook-Pro myFolder %
+
+
+5. Добавьте еще один файл в папку data на хостовой машине
+
+galina@Galinas-MacBook-Pro myFolder % sudo touch $(pwd)/data/host.txt
+
+6. Подключитесь к контейнеру second_node с помощью exec и получите список файлов в директории /var/second/data, выведете на экран содержимое файлов
+
+galina@Galinas-MacBook-Pro myFolder % docker exec second_node ls -l /var/second/data
+total 0
+-rw-r--r-- 1 root root 0 Apr  4 19:38 hello.txt
+galina@Galinas-MacBook-Pro myFolder %
+
+
+7. Остановите оба контейнера
+
+galina@Galinas-MacBook-Pro myFolder % docker stop first_node second_node
+first_node
+second_node
+galina@Galinas-MacBook-Pro myFolder %
+
+
+8. Удалите оба контейнера
+
+galina@Galinas-MacBook-Pro myFolder % docker rm first_node second_node
+first_node
+second_node
+galina@Galinas-MacBook-Pro myFolder %
+
+
+9. Удалите образ node версии 15.14
+
+galina@Galinas-MacBook-Pro myFolder % docker rmi node:15.14
+Error response from daemon: conflict: unable to remove repository reference "node:15.14" (must force) - container 4e4748da2a20 is using its referenced image 3d3f41722daf
+galina@Galinas-MacBook-Pro myFolder %
+
+удалила вручную с докера:
+galina@Galinas-MacBook-Pro myFolder % docker rmi node:15.14
+Error: No such image: node:15.14
+galina@Galinas-MacBook-Pro myFolder %
+

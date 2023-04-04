@@ -1,0 +1,115 @@
+1. Загрузите образ busybox последней версии
+
+
+galina@Galinas-MacBook-Pro myFolder % docker pull busybox
+Using default tag: latest
+latest: Pulling from library/busybox
+4b35f584bb4f: Pull complete
+Digest: sha256:b5d6fe0712636ceb7430189de28819e195e8966372edfc2d9409d79402a0dc16
+Status: Downloaded newer image for busybox:latest
+docker.io/library/busybox:latest
+galina@Galinas-MacBook-Pro myFolder %
+
+
+2. Запустите новый контейнер busybox с командой ping сайта netology.ru, и количеством пингов 7, поименуйте контейнер pinger
+
+galina@Galinas-MacBook-Pro myFolder % docker run --name pinger -it busybox ping -c 7 netology.ru
+PING netology.ru (104.22.41.171): 56 data bytes
+64 bytes from 104.22.41.171: seq=0 ttl=37 time=18.736 ms
+64 bytes from 104.22.41.171: seq=1 ttl=37 time=9.791 ms
+64 bytes from 104.22.41.171: seq=2 ttl=37 time=8.036 ms
+64 bytes from 104.22.41.171: seq=3 ttl=37 time=8.659 ms
+64 bytes from 104.22.41.171: seq=4 ttl=37 time=20.941 ms
+64 bytes from 104.22.41.171: seq=5 ttl=37 time=7.977 ms
+64 bytes from 104.22.41.171: seq=6 ttl=37 time=7.197 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 7.197/11.619/20.941 ms
+galina@Galinas-MacBook-Pro myFolder %
+
+
+3. Выведите на список всех контейнеров - запущенных и остановленных
+
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS
+             PORTS     NAMES
+cb10b6069222   busybox   "ping -c 7 netology.…"   42 seconds ago   Exited (0) 34 seconds ago             pinger
+
+
+4. Выведите на экран логи контейнера с именем pinger
+
+galina@Galinas-MacBook-Pro myFolder % docker logs pinger
+PING netology.ru (104.22.41.171): 56 data bytes
+64 bytes from 104.22.41.171: seq=0 ttl=37 time=18.736 ms
+64 bytes from 104.22.41.171: seq=1 ttl=37 time=9.791 ms
+64 bytes from 104.22.41.171: seq=2 ttl=37 time=8.036 ms
+64 bytes from 104.22.41.171: seq=3 ttl=37 time=8.659 ms
+64 bytes from 104.22.41.171: seq=4 ttl=37 time=20.941 ms
+64 bytes from 104.22.41.171: seq=5 ttl=37 time=7.977 ms
+64 bytes from 104.22.41.171: seq=6 ttl=37 time=7.197 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 7.197/11.619/20.941 ms
+
+
+5. Запустите второй раз контейнера с именем pinger
+docker: Error response from daemon: Conflict. The container name "/pinger" is already in use by container "4b0e3cff8879f7e823d309ae2eedf521651aed9b132ec715488d7bba61188caa". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+galina@Galinas-MacBook-Pro myFolder %
+
+
+6. Выведите на список всех контейнеров - запущенных и остановленных
+galina@Galinas-MacBook-Pro myFolder % $ docker ps -a
+zsh: command not found: $
+galina@Galinas-MacBook-Pro myFolder %
+
+
+7. Выведите на экран логи контейнера с именем pinger
+
+galina@Galinas-MacBook-Pro myFolder % docker logs pinger
+PING netology.ru (104.22.41.171): 56 data bytes
+64 bytes from 104.22.41.171: seq=0 ttl=37 time=18.736 ms
+64 bytes from 104.22.41.171: seq=1 ttl=37 time=9.791 ms
+64 bytes from 104.22.41.171: seq=2 ttl=37 time=8.036 ms
+64 bytes from 104.22.41.171: seq=3 ttl=37 time=8.659 ms
+64 bytes from 104.22.41.171: seq=4 ttl=37 time=20.941 ms
+64 bytes from 104.22.41.171: seq=5 ttl=37 time=7.977 ms
+64 bytes from 104.22.41.171: seq=6 ttl=37 time=7.197 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 7.197/11.619/20.941 ms
+galina@Galinas-MacBook-Pro myFolder % docker run --name pinger -it busybox ping -c 7 netology.ru
+docker: Error response from daemon: Conflict. The container name "/pinger" is already in use by container "4b0e3cff8879f7e823d309ae2eedf521651aed9b132ec715488d7bba61188caa". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+galina@Galinas-MacBook-Pro myFolder % $ docker ps -a
+zsh: command not found: $
+galina@Galinas-MacBook-Pro myFolder % $ docker logs pinger
+zsh: command not found: $
+galina@Galinas-MacBook-Pro myFolder %
+
+
+8. Определите по логам общее количество запусков команды ping и какое общее количество отправленых запросов
+
+galina@Galinas-MacBook-Pro myFolder % docker logs pinger | grep PING | wc -l
+       1
+galina@Galinas-MacBook-Pro myFolder % docker logs pinger | grep transmitted
+7 packets transmitted, 7 packets received, 0% packet loss
+
+9. Удалите контейнер с именем pinger
+galina@Galinas-MacBook-Pro myFolder % docker rm pinger
+pinger
+
+10. Удалите образ busybox
+galina@Galinas-MacBook-Pro myFolder % docker rmi busybox:latest
+Untagged: busybox:latest
+Untagged: busybox@sha256:b5d6fe0712636ceb7430189de28819e195e8966372edfc2d9409d79402a0dc16
+Deleted: sha256:7cfbbec8963d8f13e6c70416d6592e1cc10f47a348131290a55d43c3acab3fb9
+Deleted: sha256:baacf561cfff825708763ce7ee4a18293716c533e6ece3bd39009a5fb3c804d2
+galina@Galinas-MacBook-Pro myFolder %
+
+
+
+
+
