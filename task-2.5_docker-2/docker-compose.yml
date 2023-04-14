@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  library:
+    build: ./library
+    ports:
+      - 3000:3000
+    environment:
+      - PORT=3000
+      - COUNTER_URL=http://counter:3001
+    volumes:
+      - ./data:/app-data
+    depends_on:
+      - counter
+
+  counter:
+    build: ./counter
+    ports:
+      - 3001:3001
+    environment:
+      - PORT=3001
+    volumes:
+      - ./data:/app-data
