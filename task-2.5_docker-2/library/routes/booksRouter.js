@@ -3,6 +3,7 @@ const library = require('../library/store')
 const createBook = require('../helpers/createBook')
 const booksRouter = express.Router()
 const fileMiddleware = require('../middleware/file')
+const { incCounter, getCounter } = require('../api/counter');
 
 
 booksRouter.get('/view', (_req, res) => {
@@ -10,11 +11,13 @@ booksRouter.get('/view', (_req, res) => {
 })
 
 
-booksRouter.get('/view/:id', (req, res) => {
+booksRouter.get('/view/:id', async(req, res) => {
   const { id } = req.params
   const index = library.books.findIndex(book => book.id === id)
   if (index !== -1) {
-    res.render('books/view', { title: 'Chosen book', book: library.books[index] })
+    await incCounter(id);
+    const counter = await getCounter(id);
+    res.render('books/view', { title: 'Chosen book', book: library.books[index], counter })
   } else {
     res.status(404)
     res.redirect('/404')
