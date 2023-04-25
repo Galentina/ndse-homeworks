@@ -1,0 +1,20 @@
+{
+  "name": "counter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "auhtor": "Galina Malareva",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon -r dotenv/config index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-form-data": "^2.0.22"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.22"
+  }
+}
