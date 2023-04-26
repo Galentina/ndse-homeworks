@@ -16,7 +16,7 @@ userApiRouter.post('/login',
 });
 
 userApiRouter.get('/signup', (_req, res) => {
-  res.redirect('user/signup')
+  res.render('user/signup')
 })
 
 userApiRouter.post('/signup', async(req, res) => {
