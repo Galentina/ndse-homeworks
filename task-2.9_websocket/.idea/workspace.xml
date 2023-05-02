@@ -1,8 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd080b00-766f-4cf7-af7f-cced518368d1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fd080b00-766f-4cf7-af7f-cced518368d1" name="Changes" comment="fix: api signup">
+      <change afterPath="$PROJECT_DIR$/../task-2.8_auth/.idea/task-2.5_docker-2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../task-2.8_auth/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/task-2.5_docker-2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/counter/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/counter/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/counter/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/counter/config/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/counter/file.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/counter/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/counter/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/counter/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/counter/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/counter.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/api/counter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/config/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/helpers/createBook.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/library/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/middleware/error.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/middleware/file.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/models/Book.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/models/User.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/routes/booksApiRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/routes/booksRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/routes/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/routes/userApiRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/views/books/create.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/views/books/form.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/views/books/index.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/views/books/update.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/views/books/view.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/views/error/404.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/views/index.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/views/layout/end.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/views/layout/menu.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/views/layout/start.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/views/user/login.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/views/user/profile.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/views/user/signup.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/yarn.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../task-2.8_auth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +185,18 @@
       <workItem from="1682443470575" duration="5749000" />
       <workItem from="1682514033160" duration="90000" />
       <workItem from="1682514138520" duration="1801000" />
+      <workItem from="1682543001966" duration="102000" />
+      <workItem from="1682712817680" duration="2191000" />
+      <workItem from="1683047429173" duration="2297000" />
     </task>
+    <task id="LOCAL-00001" summary="fix: api signup">
+      <created>1682543095160</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682543095160</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,5 +212,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix: api signup" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: api signup" />
   </component>
 </project>
